@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvCountDownTime"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/general_margin_medium"
+        android:gravity="center_horizontal|center_vertical"
+        android:textSize="@dimen/general_text_large"
+        android:text="00:00:00"
+        />
+
+</LinearLayout>

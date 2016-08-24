@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="dev.gobeyond.com.countdowntimer.MainActivity">
+
+    <TextView
+        android:id="@+id/tvIntro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/general_margin_large"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/general_text_medium"
+        android:text="Please set your countdown time:" />
+
+    <RelativeLayout
+        android:id="@+id/rlHours"
+        android:layout_below="@id/tvIntro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/general_margin_medium">
+        <TextView
+            android:id="@+id/tvHours"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/general_margin_small"
+            android:text="@string/hours" />
+        <EditText
+            android:id="@+id/etHours"
+            android:layout_toRightOf="@id/tvHours"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlMinutes"
+        android:layout_below="@id/rlHours"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/general_margin_medium">
+        <TextView
+            android:id="@+id/tvMinutes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/general_margin_small"
+            android:text="@string/minutes" />
+        <EditText
+            android:id="@+id/etMinutes"
+            android:layout_toRightOf="@id/tvMinutes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlSeconds"
+        android:layout_below="@id/rlMinutes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/general_margin_medium">
+        <TextView
+            android:id="@+id/tvSeconds"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/general_margin_small"
+            android:text="@string/seconds" />
+        <EditText
+            android:id="@+id/etSeconds"
+            android:layout_toRightOf="@id/tvSeconds"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnStart"
+        android:layout_below="@id/rlSeconds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/general_margin_small"
+        android:layout_centerHorizontal="true"
+        android:text="@string/start"/>
+
+</RelativeLayout>
