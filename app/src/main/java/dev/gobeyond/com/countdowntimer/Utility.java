@@ -17,22 +17,24 @@ public class Utility {
     private static final String PREFS_NAME = BuildConfig.APPLICATION_ID;
 
     public static final String KEY_COUNT_DOWN_MILLIS = "count_down_millis";
-
-    public static String getCurrentTime(String timeFormat) {
-        Format formatter = new SimpleDateFormat(timeFormat);
-        return formatter.format(new Date());
-    }
+    public static final String KEY_LAST_TIME_MILLIS = "last_time_millis";
 
     public static String updateCurrentCountDownTime(Context ctx) {
         long defaultValue = 3 * 60 * 1000; //3 minutes
         long countDownMillis = Utility.getLong(ctx, Utility.KEY_COUNT_DOWN_MILLIS, defaultValue);
 
-        //Decrease the counter by 1 second = 1000 milliseconds
-        countDownMillis -= 1000;
+        long currentTimeMillis = System.currentTimeMillis();
+        long lastTimeMillis = Utility.getLong(ctx, Utility.KEY_LAST_TIME_MILLIS, currentTimeMillis);
+
+        long difference = currentTimeMillis - lastTimeMillis;
+
+        //Decrease the counter by the difference in time between this call and the last one
+        countDownMillis -= difference;
 
         String hms;
         if(countDownMillis >= 0) {
             Utility.putLong(ctx, Utility.KEY_COUNT_DOWN_MILLIS, countDownMillis);
+            Utility.putLong(ctx, Utility.KEY_LAST_TIME_MILLIS, currentTimeMillis);
 
             hms = String.format("%02d:%02d:%02d",
                     TimeUnit.MILLISECONDS.toHours(countDownMillis),
